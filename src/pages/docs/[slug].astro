@@ -3,6 +3,7 @@ import "../../styles/global.css";
 import "../../styles/markdown.css";
 import Layout from "../../layouts/Layout.astro";
 import { docs } from "../../data/doc.js";
+import ClientRouter from "astro/components/ClientRouter.astro";
 
 export async function getStaticPaths() {
   return docs.map((doc) => ({
@@ -23,6 +24,12 @@ const DocContent = matchedDoc ? matchedDoc.Content : null;
 ---
 
 <Layout>
+  <button
+    onclick="window.history.back()"
+    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+  >
+    ⬅️ Volver
+  </button>
   <article
     class="prose prose-invert prose-lg bg-gray-850 rounded-xl shadow-xl p-8 mx-auto text-gray-300"
   >
@@ -42,6 +49,22 @@ const DocContent = matchedDoc ? matchedDoc.Content : null;
       )
     }
   </article>
+
+  <div class="flex flex-col items-center mt-8 space-y-4">
+    <a
+      href="#"
+      class="text-blue-500 hover:text-blue-700 text-lg font-semibold"
+      title="Volver arriba"
+    >
+      ⬆️ Volver arriba
+    </a>
+    <a
+      href="/"
+      class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded shadow-md transition-transform transform hover:scale-105"
+    >
+      Ver todos los documentos
+    </a>
+  </div>
 </Layout>
 
 <!-- Carga el script para generar el índice dinámicamente -->

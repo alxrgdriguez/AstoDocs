@@ -2,8 +2,9 @@
 import "../styles/global.css";
 import Sidebar from "../components/Sidebar.astro";
 import Navbar from "../components/Navbar.astro";
+import { ClientRouter } from "astro:transitions";
 
-const { title } = Astro.props;
+const { title, favicon = "/favicon.png" } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,13 +13,21 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title || "Astro Docs"}</title>
+    <link rel="shortcut icon" href={favicon} type="image/x-icon" />
+    <ClientRouter />
   </head>
-  <body class="flex h-screen bg-gray-900 text-gray-100 font-sans">
-    <Sidebar />
-    <div class="flex-1 flex flex-col overflow-hidden">
-      <Navbar />
+  <body class="flex flex-col h-screen bg-gray-900 text-gray-100 font-sans">
+    <!-- Navbar fijo -->
+    <Navbar />
+
+    <div class="flex flex-1 overflow-hidden">
+      <!-- Sidebar ocultable en móviles -->
+      <aside class="hidden lg:flex w-64 bg-gray-800 shadow-lg">
+        <Sidebar />
+      </aside>
+      <!-- Contenedor principal adaptable -->
       <main
-        class="flex-1 p-6 overflow-y-auto bg-gray-800 rounded-lg shadow-xl mx-6 my-4"
+        class="flex-1 p-6 overflow-y-auto bg-gray-800 rounded-lg shadow-xl mx-4 my-4"
       >
         <slot />
       </main>

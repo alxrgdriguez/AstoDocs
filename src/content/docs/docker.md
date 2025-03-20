@@ -2,9 +2,7 @@
 
 <!-- Carga el script para generar el índice dinámicamente -->
 
-<script src="/src/scripts/toc.js" defer></script>
-
----
+## <div id="toc"></div>
 
 ## ✨ Paso 1: Actualizar el sistema
 

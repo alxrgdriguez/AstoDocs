@@ -138,6 +138,12 @@
     color: #93c5fd;
 }
 
+#toc {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+
 .toc {
     background: rgba(255, 255, 255, 0.1);
     padding: 1.5rem;
