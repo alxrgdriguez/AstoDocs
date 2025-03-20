@@ -5,9 +5,12 @@ import Card from "../components/Card.astro";
 import { docs } from "../data/doc.js";
 ---
 
+<!-- index.astro -->
 <Layout>
-  <h1 class="text-2xl font-bold mb-6">Listado de documentaciones</h1>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <h1 class="text-2xl font-bold mb-6 text-center md:text-left">
+    Listado de documentaciones
+  </h1>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
     {docs.map((doc) => <Card {...doc} />)}
   </div>
 </Layout>
