@@ -6,10 +6,10 @@ export const docs = [
     description: "Comandos útiles para Docker 🚀",
   },
   {
-    title: "Git",
-    slug: "git",
-    image: "/images/git.png",
-    description: "Comandos útiles para Git 🔥",
+    title: "Github",
+    slug: "github",
+    image: "/images/github.svg",
+    description: "Comandos útiles para GitHub 🔥",
   },
 
   
