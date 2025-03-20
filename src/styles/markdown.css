@@ -1,15 +1,30 @@
+/* Estilos responsivos para .prose */
 .prose {
     color: #e0e0e0;
     line-height: 1.8;
     max-width: 100%;
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
-    padding: 3rem 4rem;
-    /* Más espacio alrededor para mejorar la lectura */
+    padding: 2rem 1.5rem;
+    /* Espaciado reducido para móviles */
+}
+
+@media (min-width: 768px) {
+    .prose {
+        padding: 3rem 3rem;
+        /* Ajuste en tablet */
+    }
+}
+
+@media (min-width: 1024px) {
+    .prose {
+        padding: 3rem 4rem;
+        /* Espaciado original en PC */
+    }
 }
 
 .prose h1 {
-    font-size: 2.8rem;
+    font-size: 2rem;
     font-weight: bold;
     color: #ffffff;
     text-transform: uppercase;
@@ -19,21 +34,45 @@
     text-shadow: 2px 2px 12px rgba(255, 255, 255, 0.15);
 }
 
+@media (min-width: 768px) {
+    .prose h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .prose h1 {
+        font-size: 2.8rem;
+    }
+}
+
 .prose h2 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: #cbd5e1;
-    margin-top: 2rem;
-    margin-bottom: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
     border-left: 6px solid #4f46e5;
-    padding-left: 1.2rem;
+    padding-left: 1rem;
+}
+
+@media (min-width: 768px) {
+    .prose h2 {
+        font-size: 2.2rem;
+    }
 }
 
 .prose p {
     color: #d4d4d4;
-    line-height: 2;
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+@media (min-width: 768px) {
+    .prose p {
+        font-size: 1.2rem;
+    }
 }
 
 .prose a {
@@ -53,45 +92,59 @@
 .prose code {
     background-color: #1e293b;
     color: #34d399;
-    padding: 0.2rem 0.4rem;
-    /* Reducimos el padding */
-    border-radius: 6px;
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
     font-family: 'Fira Code', monospace;
-    font-size: 1.2rem;
+    font-size: 1rem;
     box-shadow: inset 0px 0px 6px rgba(255, 255, 255, 0.1);
     word-break: break-word;
     overflow-x: auto;
 }
 
+@media (min-width: 768px) {
+    .prose code {
+        font-size: 1.1rem;
+    }
+}
 
 .prose pre {
     background-color: #0f172a;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+    padding: 1.2rem;
+    border-radius: 8px;
     overflow-x: auto;
-    border: 1px solid rgba(255, 255, 255, 0.15);
     font-family: 'Fira Code', monospace;
-    font-size: 1rem;
-    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+    .prose pre {
+        font-size: 1rem;
+    }
 }
 
 .prose blockquote {
     border-left: 6px solid #facc15;
     background-color: #1e293b;
     color: #f3f4f6;
-    padding: 1.5rem;
+    padding: 1rem;
     font-style: italic;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 8px 8px 0;
     box-shadow: inset 3px 3px 12px rgba(255, 255, 255, 0.1);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .prose ul,
 .prose ol {
-    color: #e0e0e0;
-    padding-left: 2rem;
-    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+
+    .prose ul,
+    .prose ol {
+        padding-left: 2rem;
+    }
 }
 
 .prose ul {
@@ -103,32 +156,33 @@
 }
 
 .prose li {
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     padding-left: 0.5rem;
 }
 
-/* Índice al inicio del documento */
 .prose .toc {
     background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin-bottom: 2.5rem;
+    padding: 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
 }
 
 .prose .toc h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #facc15;
-    margin-bottom: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+    .prose .toc h2 {
+        font-size: 1.8rem;
+    }
 }
 
 .prose .toc ul {
     list-style: none;
     padding: 0;
-}
-
-.prose .toc li {
-    margin-bottom: 0.8rem;
 }
 
 .prose .toc a {
@@ -139,39 +193,5 @@
 }
 
 .prose .toc a:hover {
-    color: #93c5fd;
-}
-
-#toc {
-    display: block;
-    visibility: visible;
-    opacity: 1;
-}
-
-.toc {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
-    border-radius: 10px;
-    margin-bottom: 2.5rem;
-}
-
-.toc ul {
-    list-style: none;
-    padding: 0;
-}
-
-.toc li {
-    margin-bottom: 0.8rem;
-}
-
-.toc a {
-    color: #60a5fa;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.toc a:hover {
     color: #93c5fd;
 }
