@@ -1,0 +1,13 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import { docs } from "../data/doc.js";
+---
+
+<Layout>
+  <h1 class="text-2xl font-bold mb-6">Listado de documentaciones</h1>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {docs.map((doc) => <Card {...doc} />)}
+  </div>
+</Layout>

@@ -1,0 +1,48 @@
+---
+import "../../styles/global.css";
+import "../../styles/markdown.css";
+import Layout from "../../layouts/Layout.astro";
+import { docs } from "../../data/doc.js";
+
+export async function getStaticPaths() {
+  return docs.map((doc) => ({
+    params: { slug: doc.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const doc = docs.find((d) => d.slug === slug);
+
+if (!doc) {
+  Astro.redirect("/");
+}
+
+const allDocs = await Astro.glob("../../content/docs/*.md");
+const matchedDoc = allDocs.find((entry) => entry.file.includes(`${slug}.md`));
+const DocContent = matchedDoc ? matchedDoc.Content : null;
+---
+
+<Layout>
+  <article
+    class="prose prose-invert prose-lg bg-gray-850 rounded-xl shadow-xl p-8 mx-auto text-gray-300"
+  >
+    {
+      doc ? (
+        <>
+          <div class="flex gap-4 items-center">
+            <img src={doc.image} alt={doc.title} class="w-26 h-25 mb-6" />
+            <h1>{doc.title}</h1>
+          </div>
+          <h4 class="text-5xl mb-4 font-bold">📖 Índice</h4>
+          <div id="toc" class="prose toc" />
+          {DocContent ? <DocContent /> : <p>Sin contenido aún.</p>}
+        </>
+      ) : (
+        <p>Documento no encontrado.</p>
+      )
+    }
+  </article>
+</Layout>
+
+<!-- Carga el script para generar el índice dinámicamente -->
+<script src="/src/scripts/toc.js" defer></script>
